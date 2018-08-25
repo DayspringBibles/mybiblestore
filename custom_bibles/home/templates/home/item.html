@@ -1,0 +1,47 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% load home_tags %}
+{% block body %}
+
+<div class="col-me-2">
+	
+	{% for thing in item.name|get_item_images %}
+		{% if forloop.counter < 2 %}
+			<div class="image-box">
+			{% else %}
+				<div class="image-box-hidden">
+				{% endif %}
+				<img src="{% static thing %}" class="image">
+				
+				
+			</div>
+		{% endfor %}
+		<div class="image-selector">
+			{% for thing in item.name|get_item_images %}
+				{% if forloop.counter > 0 %}
+					<div class="next-button" id="img_selector_{{ forloop.counter }}">
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+	<div class="col-me-2">
+		<h2><div class="page-header">Description</div></h2>
+		<p>{{ item.text }}</p>
+		<h2><div class="page-header">Cover Options</div></h2>
+		
+		<div class="cover-group equal">
+			{% for thing in leather %}
+				<div class="cover-item-wrapper">
+					<div class="cover-item"><img src="{% static thing.name|get_cover_image %}"></div>
+					<div class="cover-item-text">
+						<h3>{{thing.color}} {{thing.animal}}</h3>
+						<p>{{thing.description}}</p>
+						
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+			
+{% endblock %}

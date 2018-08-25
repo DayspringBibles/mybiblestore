@@ -1,0 +1,47 @@
+
+demo
+
+python manage.py runserver
+
+http://127.0.0.1:8000
+
+
+mysql
+user:root
+pass:dayspring
+or no pass
+
+
+We've installed your MySQL database without a root password. To secure it run:
+    mysql_secure_installation
+
+MySQL is configured to only allow connections from localhost by default
+
+To connect run:
+    mysql -uroot
+
+To have launchd start mysql now and restart at login:
+  brew services start mysql
+Or, if you don't want/need a background service you can just run:
+  mysql.server start
+
+
+python manage.py makemigrations (home)
+python manage.py migrate
+python manage.py runserver
+
+admin
+user: christopher
+pass
+Dayspr!ng
+
+to run mysql in terminal:
+
+mysql -u root
+use custom_bibles;
+show tables;
+
+SET @x=8;
+CREATE TEMPORARY TABLE tmp SELECT * FROM home_insides;
+UPDATE tmp SET id=id+@x;
+INSERT INTO home_insides SELECT * FROM tmp;

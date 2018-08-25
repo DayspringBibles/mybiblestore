@@ -1,0 +1,61 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% load home_tags %}
+{% with page_title=item.name %}{% endwith %}
+{% block body %}
+
+<div class="row text-selection-box ">
+    <div class="sidebar">
+        <h2 class="filter-title">Filter</h2>
+        Language:
+        {{ language }}
+        Translation:
+        {{ translation }}
+        Columns:
+        {{ columns }}
+    </div>
+    <div class="content">
+        <small class="sort-links"><strong>Sort By:</strong>
+        <span id="sort-links">
+            <a id="sort-title_A-Z" href="/books/?sort=title_A-Z">
+                <span>Title A-Z</span>
+            </a>
+            <a id="sort-title_Z-A" href="/books/?sort=title_Z-A">
+                <span>Title Z-A</span>
+            </a>
+            <a id="sort-price" href="/books/?sort=price">
+                <span>Price</span>
+            </a>
+            <a id="sort-best_selling" href="/books/?sort=best_selling">
+                <span>Best Selling</span>
+            </a>
+            <span>New</span>
+            
+        </span>
+        </small>
+        <div class="store-items equal">
+            {% for item in inside_options %}
+                <div class="col-me-3">
+                    
+                    <a class="item-box" href="/store/{{ item.name }}">
+                        <div class="item-box-insides">
+                            <div class="item-box-image">
+                                <img src="{% static item.name|get_item_thumb %}">
+                            </div>
+                            <div class="item-box-text">
+                                <div class="item-box-text-title">
+                                    {{ item.name|human_readable }}
+                                </div>
+                                <div class="item-box-text-desc">
+                                    From ${{ item.price }}
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

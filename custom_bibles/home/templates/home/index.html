@@ -1,0 +1,70 @@
+{% load static %}
+{% load home_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ page_title|human_readable|default:"My Bible Store"}}</title>
+        <meta name="description" content="{{ page_description|default:"My Bible Store is a not-for-profit affiliate of Dayspring Bibles providing premium Bibles." }}">
+        <link rel="stylesheet" href="{% static "bootstraap.css" %}"/>
+        <link rel="stylesheet" href="{% static "css/nav.css" %}"/>
+        <script src="{% static "jquery.js" %}"></script>
+        <script src="{% static "bootstrap.js" %}"></script>
+        <script src="{% static "my.js" %}"></script>
+        <link rel="stylesheet" href="{% static "my.css" %}"/>
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="container">
+                    
+                    <!-- brand -->
+                    <a class="navbar-brand" href="/"><img src="{% static "logo_small.png" %}"></a>
+                    
+                    <!-- menu button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <!-- cart -->
+                    <ul class="nav right">
+                        <li>
+                            <a href="#">
+                                <span class="icon-cart"></span>
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <!-- collapsable links -->
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-right">
+                            <li class="active">
+                                <a href="/store">Store</a>
+                            </li>
+                            <li>
+                                <a href="/about">About</a>
+                            </li>
+                            <li>
+                                <a href="/contact">Contact</a>
+                            </li>
+                        </ul>
+                </div>     
+            </div>
+        </nav>
+        
+        <!-- body -->
+        <div class="container my-body">
+            <div class="row">
+                {% if page_heading %}
+                <div class="page-header"><h1>{{ page_heading|human_readable }}</h1></div>
+                {% endif %}
+        
+                {% block body %}
+                {% endblock %}
+            </div>
+        </div>
+    </body>
+</html>
