@@ -1,4 +1,6 @@
+# my gitignore
 python
+settings.py
 
 # Created by https://www.gitignore.io
 
