@@ -1,0 +1,43 @@
+
+# current status
+git status
+git diff
+git log
+
+# add stuff to commit
+git add .
+git add file
+gid add folder
+
+# gitignore
+git rm -r --cached . 
+
+# to commit
+git commit -m 'commit comments'
+
+# list files in commit
+git diff-tree --no-commit-id --name-only -r "commit number ""
+
+# add alias to see last update
+git config --global alias.last 'log -1 HEAD'
+git last
+
+# commit to github
+git remote add origin git@example.com:example/petshop.git
+git push -u origin master
+
+# show remote repositories
+git remote -v show
+
+# get and merge remote changes
+git pull
+
+
+# file not excluded with .gitignore
+git ls-files -ci --exclude-standard
+
+# alias to remove gitignore files form commit
+git config --global alias.apply-gitignore '!git ls-files -ci --exclude-standard -z | xargs -0 git rm --cached'
+
+# https://gist.github.com/davfre/8313299
+
