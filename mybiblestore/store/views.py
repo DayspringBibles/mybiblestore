@@ -11,7 +11,7 @@ def index(request):
 
 	#return HttpResponse('home')
 	inside_options = insides.objects.all()
-	return render(request, 'home/home.html',{	
+	return render(request, 'store/home.html',{	
 		'inside_options' : inside_options,
 		'page_title' : 'Home | My Bible',
 		'page_heading' : 'Home'
@@ -27,7 +27,7 @@ def store(request):
 
 	inside_options = insides.objects.all()
 	
-	return render(request, 'home/store.html',{	
+	return render(request, 'store/store.html',{	
 		'inside_options' : inside_options,
 		'page_title' : 'Store | My Bible',
 		'page_heading' : 'Store'
@@ -36,7 +36,7 @@ def store(request):
 def store_item(request,item_name):
 	item = insides.objects.filter(name=item_name)[0]
 	cover = leather.objects.all()
-	return render(request, 'home/item.html',{	
+	return render(request, 'store/item.html',{	
 		'item' : item,
 		'page_title' : item.name + " | My Bible",
 		'page_description' : item.short_description,
@@ -49,14 +49,14 @@ def store_item(request,item_name):
 
 def about(request):
 	#return HttpResponse('about')
-	return render(request, 'home/about.html',{
+	return render(request, 'store/about.html',{
 		'page_title' : 'About | My Bible',
 		'page_heading' : 'About'
 		})
 
 def contact(request):
 	#return HttpResponse('contact')
-	return render(request, 'home/contact.html',{
+	return render(request, 'store/contact.html',{
 		'site_description' : "test",
 		'page_title' : "Contact | My Bible",
 		'page_heading' : 'Contact'
